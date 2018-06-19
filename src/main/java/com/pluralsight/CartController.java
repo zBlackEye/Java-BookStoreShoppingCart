@@ -52,7 +52,7 @@ public class CartController extends HttpServlet {
 				 	 deleteFromCart(request, response);
 				 	 break;
 				default:
-					break;
+					 break;
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -105,7 +105,7 @@ public class CartController extends HttpServlet {
 	 	throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String indexStr = request.getParameter("index");
-	  int index = Integer.parseInt(indexStr);
+		int index = Integer.parseInt(indexStr);
 
 		ShoppingCart shoppingCart = (ShoppingCart)session.getAttribute("cart");
  		shoppingCart.deleteCartItem(index);
