@@ -55,7 +55,6 @@ public class CartController extends HttpServlet {
 					 break;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
