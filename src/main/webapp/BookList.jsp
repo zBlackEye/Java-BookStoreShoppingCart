@@ -11,16 +11,19 @@
 
 
 <body>
+  <%-- The navigation bar --%>
 	<ul>
 	  <li><a class="active" href="list">Book Listing</a></li>
     <li><a href="admin">Admin</a></li>
     <li><a href="/cart/">Cart</a></li>
 	</ul>
 
+    <%-- The table of Books --%>
     <div class="container">
 	    <div class="booktable">
 	        <table border="1" cellpadding="5">
 	            <caption>List of Books</caption>
+              <%-- Table Headings --%>
 	            <tr>
 	                <th>Title</th>
 	                <th>Author</th>
@@ -28,7 +31,7 @@
                   <th>Quantity</th>
                   <th></th>
 	            </tr>
-
+        <%-- A loop for each Book in a row --%>
 	 			<c:forEach items="${books}" var="item">
 	                <tr><form name="cart_form" action="/cart/addcart">
                       <input type="hidden" name="id" value="<c:out value='${item.getId()}' />" />

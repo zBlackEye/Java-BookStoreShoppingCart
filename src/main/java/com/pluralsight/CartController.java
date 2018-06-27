@@ -44,8 +44,10 @@ public class CartController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException  {
+		// The requested URL path
 		String action = request.getPathInfo();
 
+		// Do different things depending on the action (or path requested)
 		try {
 			switch(action) {
 				case "/addcart":
@@ -70,8 +72,11 @@ public class CartController extends HttpServlet {
    String quantityStr = request.getParameter("quantity");
    int quantity = Integer.parseInt(quantityStr);
 
+	 // Get the book from the database
    Book existingBook = bookDAO.getBook(id);
 
+	 // Check if a ShoppingCart exists in the Session variable
+	 // If not create one
    ShoppingCart shoppingCart = null;
    Object objCartBean = session.getAttribute("cart");
 
@@ -82,6 +87,7 @@ public class CartController extends HttpServlet {
     session.setAttribute("cart", shoppingCart);
    }
 
+	 // Add this item and quantity to the ShoppingCart
    shoppingCart.addCartItem(existingBook, quantity);
   }
 
