@@ -5,7 +5,7 @@ import javax.inject.Inject;
 
 public class ShoppingCart {
  @Inject
- private ArrayList cartItems = new ArrayList();
+ private ArrayList<CartItem> cartItems = new ArrayList<CartItem>();
  private double dblOrderTotal ;
 
  public int getLineItemCount() {
