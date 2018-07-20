@@ -45,10 +45,10 @@ public class CartController extends HttpServlet {
 				case "/addcart":
 					 addToCart(request, response);
 					 break;
-				case "/update":
+				 case "/update":
 					 updateCart(request, response);
 					 break;
-				case "/delete":
+				 case "/delete":
 				 	 deleteFromCart(request, response);
 				 	 break;
 				default:
@@ -107,7 +107,7 @@ public class CartController extends HttpServlet {
 		int index = Integer.parseInt(indexStr);
 
 		ShoppingCart shoppingCart = (ShoppingCart)session.getAttribute("cart");
- 		shoppingCart.deleteCartItem(index);
+		shoppingCart.deleteCartItem(index);
 	 }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
