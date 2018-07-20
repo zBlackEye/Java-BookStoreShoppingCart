@@ -5,10 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
-import org.junit.BeforeClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -28,13 +24,10 @@ import org.mockito.invocation.Invocation;
 import org.powermock.reflect.Whitebox;
 import java.lang.reflect.Method;
 
-import java.io.*;
-
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(CartController.class)
 public class Module2_Task5_thru_8_IT extends Mockito {
 
-	private CartController cartController;
   Method method = null;
   boolean called_deleteFromCart = false;
   String errorMsg = "";

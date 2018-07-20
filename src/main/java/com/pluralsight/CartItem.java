@@ -3,7 +3,6 @@ package com.pluralsight;
 public class CartItem {
     private Book book;
     private int quantity;
-    private double dblTotalCost;
 
     public CartItem(Book book, int quantity) {
       this.book = book;

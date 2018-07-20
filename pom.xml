@@ -96,6 +96,7 @@
       <configuration>
         <port>8080</port>
         <path>/</path>
+        <contextReloadable>true</contextReloadable>
       </configuration>
     </plugin>
   </plugins>

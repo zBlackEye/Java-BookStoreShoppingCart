@@ -15,7 +15,7 @@ import org.mockito.MockitoAnnotations;
 
 public class Module3_Task3_thru_4_IT extends Mockito {
     @Mock
-    private ArrayList mockArrayList;
+    private ArrayList<CartItem> mockArrayList;
 
     @InjectMocks
     private ShoppingCart shoppingCart;
@@ -52,6 +52,7 @@ public class Module3_Task3_thru_4_IT extends Mockito {
       CartItem cartItem = Mockito.mock(CartItem.class);
 
       Mockito.when(mockArrayList.get(0)).thenReturn(cartItem);
+      Mockito.when(mockArrayList.size()).thenReturn(1);
       //Mockito.when(cartItem.setQuantity(1)).thenReturn(cartItem);
 
       try {

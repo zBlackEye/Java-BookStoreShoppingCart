@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.Before;
 
 import java.lang.reflect.Method;
-import java.io.*;
 import java.util.ArrayList;
 
 import org.mockito.Mockito;
@@ -15,7 +14,7 @@ import org.mockito.MockitoAnnotations;
 
 public class Module2_Task3_thru_4_IT extends Mockito {
     @Mock
-    private ArrayList mockArrayList;
+    private ArrayList<CartItem> mockArrayList;
 
     @InjectMocks
     private ShoppingCart shoppingCart;
