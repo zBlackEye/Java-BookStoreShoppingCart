@@ -26,7 +26,11 @@ public class Module1_Task1_thru_4_IT {
 
 	  @Before
 	  public void setUp() throws IOException {
-	    indexUrl = "http://localhost:8080"; //System.getProperty("integration.base.url");
+		// Turning off HTMLUnit Logging
+		java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(java.util.logging.Level.OFF);
+		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
+		
+		indexUrl = "http://localhost:8080"; //System.getProperty("integration.base.url");
 	    webClient = new WebClient();
 			// Open the admin page
 	    firstPage = webClient.getPage(indexUrl + "/books/list");
