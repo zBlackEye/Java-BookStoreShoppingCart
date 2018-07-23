@@ -40,6 +40,11 @@ public class Module1_Task1_thru_4_IT {
       quantityInput.setAttribute("value", "1");
       HtmlSubmitInput submitButton = (HtmlSubmitInput)listForm.getInputByValue("Add to Cart");
       cartPage = submitButton.click();
+      
+      // Turning off HTMLUnit Logging
+      java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(java.util.logging.Level.OFF);
+      System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
+      
 
       // Get form
 			try {

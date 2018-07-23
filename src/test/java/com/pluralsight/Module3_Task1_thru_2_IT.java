@@ -3,6 +3,7 @@ package com.pluralsight;
 import static org.junit.Assert.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,11 +47,17 @@ public class Module3_Task1_thru_2_IT extends Mockito {
       boolean called_updateCart = false;
       HttpServletRequest request = mock(HttpServletRequest.class);
       HttpServletResponse response = mock(HttpServletResponse.class);
+      HttpSession session = mock(HttpSession.class);
+      ShoppingCart shoppingCart = mock(ShoppingCart.class);
 
        try {
          when(request.getPathInfo()).thenReturn("/update");
       //   //PowerMockito.doNothing().when(controllerServlet, "deleteBook", request, response);
       //   when(request.getParameter("id")).thenReturn(tempID);
+         when(request.getSession()).thenReturn(session);
+         when(request.getParameter("index")).thenReturn("0");
+         when(request.getParameter("quantity")).thenReturn("1");
+         when(session.getAttribute("cart")).thenReturn(shoppingCart);
        } catch (MethodNotFoundException e) {}
 
       try {
