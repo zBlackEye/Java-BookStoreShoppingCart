@@ -26,6 +26,10 @@ public class Module1_Task1_thru_4_IT {
 
 	  @Before
 	  public void setUp() throws IOException {
+		// Turning off HTMLUnit Logging
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(java.util.logging.Level.OFF);
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
+	      
 	    indexUrl = "http://localhost:8080"; //System.getProperty("integration.base.url");
 	    webClient = new WebClient();
 			// Open the admin page
@@ -40,11 +44,6 @@ public class Module1_Task1_thru_4_IT {
       quantityInput.setAttribute("value", "1");
       HtmlSubmitInput submitButton = (HtmlSubmitInput)listForm.getInputByValue("Add to Cart");
       cartPage = submitButton.click();
-      
-      // Turning off HTMLUnit Logging
-      java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(java.util.logging.Level.OFF);
-      System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
-      
 
       // Get form
 			try {
