@@ -1,4 +1,4 @@
-FROM maven
+FROM maven:3.6-alpine
 
 ENV APP_DIR /src/app/
 
@@ -8,8 +8,10 @@ COPY ./pom.xml ${APP_DIR}
 
 WORKDIR ${APP_DIR}
 
-RUN ["mvn", "compile"]
+RUN ["mvn", "clean"]
+
+RUN ["mvn", "de.qaware.maven:go-offline-maven-plugin:resolve-dependencies", "-P", "integration"]
 
 COPY . .
 
-CMD ["mvn", "-T", "1C", "clean", "package", "tomcat7:run"]
+ENTRYPOINT ["sh"]
