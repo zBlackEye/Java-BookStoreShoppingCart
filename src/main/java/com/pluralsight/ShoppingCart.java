@@ -22,6 +22,12 @@ public class ShoppingCart {
   cartItems.add(cartItem);
  }
 
+ public void deleteCartItem(int index) {
+   try {
+     cartItems.remove(index);
+   } catch (Exception e) {}
+ }
+
  public CartItem getCartItem(int iItemIndex) {
   CartItem cartItem = null;
   if(cartItems.size()>iItemIndex) {
