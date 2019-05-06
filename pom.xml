@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.pluralsight</groupId>
   <artifactId>bookstore</artifactId>
@@ -87,6 +91,25 @@
           <path>/</path>
           <contextReloadable>true</contextReloadable>
         </configuration>
+        <executions>
+          <execution>
+            <id>start-tomcat</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <fork>true</fork>
+            </configuration>
+          </execution>
+          <execution>
+            <id>stop-tomcat</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>shutdown</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>de.qaware.maven</groupId>
@@ -124,7 +147,9 @@
                 <configuration>
                   <systemPropertyVariables>
                     <!-- Remember to deploy the app and start the server in advance -->
-                    <integration.base.url>http://localhost:8080</integration.base.url>
+                    <integration.base.url
+                      >http://localhost:8080</integration.base.url
+                    >
                   </systemPropertyVariables>
                 </configuration>
               </execution>
