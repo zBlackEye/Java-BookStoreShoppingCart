@@ -1,4 +1,4 @@
-FROM maven:3.6-alpine
+FROM maven:3.6-jdk-8-slim
 
 ENV APP_DIR /src/app/
 
