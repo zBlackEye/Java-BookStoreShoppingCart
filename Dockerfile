@@ -1,12 +1,16 @@
 FROM maven:3.6-jdk-8-slim
 
-ENV APP_DIR /src/app/
+WORKDIR /src/app/
 
-RUN mkdir -p $APP_DIR
+COPY ./pom.xml .
 
-COPY ./pom.xml ${APP_DIR}
+RUN ["mkdir", "/home/projects"]
 
-WORKDIR ${APP_DIR}
+RUN groupadd projects && useradd -g projects projects && \
+  chown -R projects:projects /src/app && \
+  chown -R projects:projects /home/projects
+
+USER projects
 
 RUN ["mvn", "clean"]
 
