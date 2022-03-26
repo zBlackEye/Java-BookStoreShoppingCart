@@ -53,7 +53,7 @@ public class Module1_Task1_thru_4_IT {
 
 	  @After
 	  public void tearDown() {
-	    webClient.closeAllWindows();
+	    webClient.close(); // closeAllWindows
 	  }
 
     @Test
